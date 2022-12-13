@@ -1,5 +1,6 @@
 #posts-index img {
   width: 300px;
+
 }
 
 html {
@@ -12,8 +13,8 @@ body {
 
 
 header {
-  background-color: lightslategray;
-  padding: 40px;
+  position: sticky;
+  top: 0;
 }
 
 div {
@@ -39,7 +40,7 @@ a:hover { text-decoration: none; color: black;}
 a:active { text-decoration: none; }
 
 #post {
-  display: -moz-inline-grid;
+  display: inline-block;
   max-width: 300px;
 }
 
@@ -53,6 +54,24 @@ a:active { text-decoration: none; }
 }
 
 #posts-index {
+  color: rgb(10, 43, 10);
+  text-align: center;
+}
+
+#signup {
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgb(160, 160, 160);
+  padding: 10px;
+  color: rgb(10, 43, 10);
+  text-align: center;
+}
+
+#login {
+  margin: auto;
+  width: 50%;
+  border: 3px solid rgb(160, 160, 160);
+  padding: 10px;
   color: rgb(10, 43, 10);
   text-align: center;
 }
