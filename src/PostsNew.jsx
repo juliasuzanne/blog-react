@@ -1,32 +1,15 @@
-import axios from "axios";
 import { useState } from "react";
 
-export function PostsNew() {
-  const [errors, setErrors] = useState([]);
-
+export function PostsNew(props) {
   const handleNewPost = (event) => {
     event.preventDefault();
-    event.preventDefault();
-    setErrors([]);
     const params = new FormData(event.target);
-    axios
-      .post("http://localhost:3000/posts", params)
-      .then((response) => {
-        event.target.reset();
-        window.location.href = "/";
-      })
-      .catch((errors) => {
-        setErrors(errors.response.data.errors);
-      });
+    props.onCreatePost(params);
+    event.target.reset();
   };
   return (
     <div id="posts-new">
       <h1>New post</h1>
-      <ul>
-        {errors.map((error) => (
-          <li key={error}>{error}</li>
-        ))}
-      </ul>
       <form onSubmit={handleNewPost}>
         <div>
           Title:

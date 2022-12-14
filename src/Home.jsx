@@ -32,12 +32,16 @@ export function Home() {
     });
   };
 
+  const handleCreatePost = (params) => {
+    axios.post("http://localhost:3000/posts", params).then((response) => setPosts([...posts, response.data]));
+  };
+
   useEffect(handleIndexPosts, []);
   return (
     <div>
       <Signup />
       <Login />
-      <PostsNew />
+      <PostsNew onCreatePost={handleCreatePost} />
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
         <PostsShow post={currentPost} />
