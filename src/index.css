@@ -3,6 +3,22 @@
 
 }
 
+.show {
+  text-align: center;
+}
+
+#root {
+  background-color:black;
+  background-image: url("https://i.pinimg.com/originals/ff/4d/34/ff4d344d44981a5618deb925f0b8d381.gif");
+  background-size: 3000px;
+  background-position: center;
+  background-blend-mode: lighten;
+  height: 100vh;
+  overflow: scroll;
+  background-blend-mode: screen;
+
+}
+
 html {
   scroll-behavior: smooth;
 }

@@ -6,15 +6,27 @@ import { Counter } from "./Counter";
 import { Footer } from "./Footer";
 import { Header } from "./Header";
 import { Home } from "./Home";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Signup } from "./Signup";
+import { Login } from "./Login";
+import { PostsNew } from "./PostsNew";
+import { PostsShowPage } from "./PostsShowPage";
 
 function App() {
   return (
-    <div>
-      <Header />
-      <Home />
-      <Footer />
-      <Counter />
-    </div>
+    <BrowserRouter>
+      <div>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/newpost" element={<PostsNew />} />
+          <Route path="/post/:id" element={<PostsShowPage />} />
+        </Routes>
+        <Footer />
+      </div>
+    </BrowserRouter>
   );
 }
 

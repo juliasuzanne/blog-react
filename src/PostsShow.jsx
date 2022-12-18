@@ -1,8 +1,14 @@
+import React, { FunctionComponent } from "react";
+
 export function PostsShow(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
-    props.onUpdatePost(props.post.id, params);
+    props.onUpdatePost(props.post.id, params); //use params set from function in Home component, using props
+  };
+
+  const handleClick = () => {
+    props.onDestroyPost(props.post);
   };
 
   return (
@@ -26,6 +32,7 @@ export function PostsShow(props) {
           <input name="image" defaultValue={props.post.image} type="url" />
         </div>
         <button type="submit">Submit Edits</button>
+        <button onClick={handleClick}>Destroy post</button>
       </form>
     </div>
   );

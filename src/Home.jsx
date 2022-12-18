@@ -21,6 +21,11 @@ export function Home() {
     console.log(post);
   };
 
+  const handleClose = () => {
+    console.log("handleClose");
+    setIsPostsShowVisible(false);
+  };
+
   const handleHidePost = () => {
     setIsPostsShowVisible(false);
   };
@@ -32,9 +37,9 @@ export function Home() {
     });
   };
 
-  const handleCreatePost = (params) => {
-    axios.post("http://localhost:3000/posts", params).then((response) => setPosts([...posts, response.data]));
-  };
+  // const handleCreatePost = (params) => {
+  //   axios.post("http://localhost:3000/posts", params).then((response) => setPosts([...posts, response.data]));
+  // };
 
   const handleUpdatePost = (id, params) => {
     axios.patch("http://localhost:3000/posts/" + id + ".json", params).then((response) => {
@@ -53,15 +58,20 @@ export function Home() {
     });
   };
 
+  const handleDestroyPost = (post) => {
+    console.log("handleDestroyPost", post);
+    axios.delete(`http://localhost:3000/posts/${post.id}.json`).then((response) => {
+      setPosts(posts.filter((p) => p.id !== post.id));
+      handleClose();
+    });
+  };
+
   useEffect(handleIndexPosts, []);
   return (
     <div>
-      <Signup />
-      <Login />
-      <PostsNew onCreatePost={handleCreatePost} />
       <PostsIndex posts={posts} onSelectPost={handleShowPost} />
       <Modal show={isPostsShowVisible} onClose={handleHidePost}>
-        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} />
+        <PostsShow post={currentPost} onUpdatePost={handleUpdatePost} onDestroyPhoto={handleDestroyPost} />
       </Modal>
       <Comments comments={comments} />
     </div>
