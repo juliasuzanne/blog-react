@@ -1,6 +1,10 @@
 #posts-index img {
-  width: 300px;
+  width: 100%;
 
+}
+
+#posts-index body {
+  overflow-wrap:normal;
 }
 
 .show {
@@ -16,6 +20,10 @@
   height: 100vh;
   overflow: scroll;
   background-blend-mode: screen;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
 
 }
 
@@ -58,6 +66,10 @@ a:active { text-decoration: none; }
 #post {
   display: inline-block;
   max-width: 300px;
+  color: white;
+  background-color: black;
+  padding: 10px;
+  margin: 10px;
 }
 
 #posts-new {

@@ -7,8 +7,8 @@ export function PostsShow(props) {
     props.onUpdatePost(props.post.id, params); //use params set from function in Home component, using props
   };
 
-  const handleClick = () => {
-    props.onDestroyPost(props.post);
+  const handleClick = (props) => {
+    props.onDestroyPost(props.post.id);
   };
 
   return (
